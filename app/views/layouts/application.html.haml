@@ -1,0 +1,59 @@
+!!!
+%html
+  %head
+    %title Complementos
+
+    = csrf_meta_tags
+
+    = stylesheet_link_tag    'application'
+
+    -# Import Google Icon Font
+    %link{:href=>"https://fonts.googleapis.com/icon?family=Material+Icons", :rel=>"stylesheet"}
+    -#  Import materialize.css
+      -# %link{:type=>"text/css", :rel=>"stylesheet", :href=>"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css", :media=>"screen,projection"}
+
+    -# Compiled and minified CSS
+    %link{:rel=>"stylesheet", :href=>"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"}
+    -# Compiled and minified JavaScript
+    %script{:src=>"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"}
+
+    -# Let browser know website is optimized for mobile
+    %meta{:name=>"viewport", :content=>"width=device-width, initial-scale=1.0"}
+
+  %header
+    %div.navbar-fixed
+      %nav.indigo
+        %div.nav-wrapper
+          %a.brand-logo
+            =image_tag "logo-cimav.png", :id=>"img-logo"
+            %span{:style=>"float: right; position: absolute; top: -10px; left: 86px; font-weight: 300; letter-spacing: 1px; letter-spacing: 4px;"}
+              Clientes
+              %span{:style=>"display: block; font-size: initial; top: 21px; position: absolute; font-weight: 100; letter-spacing: 2px;"}
+                Complementos
+          %ul.right.hide-on-med-and-down
+            %li
+              %span{:style=>"margin-right: 20px; font-size: x-large;"}
+                =current_user.rfc
+            %li
+              -# %a.tooltipped.dropdown-trigger{:href=>"#", :html=>true, :"data-position"=>"left", :"data-tooltip"=>"<span>#{current_user.rfc}</span>", :"data-target"=>"dropdown-cuenta", :style=>"line-height: 32px; width: 130px;"}
+              %a.tooltipped(href="/logout" data-position="bottom" data-delay="50" data-tooltip="#{current_user.rfc}" data-enable-html="true")
+                Cerrar sesión
+              -# Dropdown Structure
+              -# %ul#dropdown-cuenta.dropdown-content{:style=>"position: initial;"}
+                  %li
+                    %a{:href=>"/logout"} Cerrar sesiónX
+
+  %main
+    = yield
+
+  %footer.page-footer.indigo
+
+  %script{:type=>"text/javascript", :src=>"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"}
+  %script{:type=>"text/javascript", :src=>"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"}
+
+:javascript
+
+  $(document).ready(function() {
+    $('.tooltipped').tooltip({delay: 50});
+    $('.dropdown-trigger').dropdown();
+  });

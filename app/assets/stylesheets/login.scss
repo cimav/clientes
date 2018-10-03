@@ -1,0 +1,72 @@
+
+#body-login {
+
+  .inputBgOpaque:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px aliceblue inset;
+  }
+
+  //background-color: #d9ddf2; /*ef4748*/
+  background: transparent url("/assets/fondo.JPG") center top no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  /*
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  .fixed-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  .myimg {
+    height: inherit;
+    width: inherit;
+  }
+  */
+
+  #login-area {
+
+    border: solid 1px;
+    width: 480px;
+    background-color: aliceblue;
+    opacity: 0.9;
+
+    .img-login {
+      background: transparent url("/assets/logo-cimav-medio.png") center top no-repeat;
+      padding-top: 300px;
+      margin: 0 auto;
+      margin-top: 0px;
+    }
+
+    .login-title {
+      color:#3f51b5;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 0 30px rgba(0, 0, 0, .075);
+      font-size: 36px;
+      text-align: center;
+    }
+    .login-message {
+      color:#3f51b5;
+      margin: 15px 0 15px 0;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 0 30px rgba(0, 0, 0, .075);
+      text-align: center;
+    }
+    .login-methods {
+      margin-top: 20px;
+      text-align: center;
+    }
+    button {
+      padding: 1px 25px;
+      font-size: 14px;
+      background: #fafafa;
+      /* color: #ef4748; */
+      /* @include rounded(8px); */
+    }
+  }
+}

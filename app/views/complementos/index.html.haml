@@ -1,0 +1,18 @@
+%div.row
+  %div{:style =>"width: -webkit-fill-available; padding: 10px 20px;"}
+    %h5 Listado de Complementos timbrados y emitos por el Cimav
+    -if (@complementos.length > 0)
+      %h6 Seleccione el complemento para descargarlo
+    -else
+      %h6 No tiene complementos timbrados
+%div.row
+  %div{:style =>"width: -webkit-fill-available; padding: 10px 20px;"}
+    %ul.collection
+      -@complementos.each do |comp|
+        %li.docu-item.collection-item{}
+          %a{:href=>"documentos/#{comp.ft25_rfc}/facturas/#{comp.ft25_docto}", :target=>"_blank", :style=>"cursor: pointer;display:block;"}
+            %span{:style=>'padding-left:50px;'}
+              =comp.ft25_docto
+            %span.docu-item-right
+              =comp.ft25_fecha.to_s.to_date
+              %i.icon-visibility-X.material-icons{:style=>"padding-left:15px;"} visibility
