@@ -10,9 +10,10 @@
     %ul.collection
       -@complementos.each do |comp|
         %li.docu-item.collection-item{}
-          %a{:href=>"documentos/#{comp.ft25_rfc}/facturas/#{comp.ft25_docto}", :target=>"_blank", :style=>"cursor: pointer;display:block;"}
+          %a{:href=>"complementos/docto_pdf/#{comp.ft25_folio}", :target=>"_blank", :style=>"cursor: pointer;display:block;"}
             %span{:style=>'padding-left:50px;'}
               =comp.ft25_docto
             %span.docu-item-right
               =comp.ft25_fecha.to_s.to_date
               %i.icon-visibility-X.material-icons{:style=>"padding-left:15px;"} visibility
+

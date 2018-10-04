@@ -16,16 +16,19 @@ class ComplementosController  < ApplicationController
 
   end
 
-  def docto
+  def docto_pdf
 
-    docto = "#{params[:docto]}.pdf"
-
-    send_file(
-        "#{Rails.root}/private/facturas/#{docto}",
-        filename: "#{docto}",
-        type: "application/pdf",
-        disposition: "attachment; filename=#{docto}"
-    )
+    rfc = "%#{session[:user_rfc].strip}%"
+    folio = params[:folio]
+    complemento = Complemento.select(:ft25_folio).where("ft25_rfc LIKE ? AND ft25_timbrado = ? AND ft25_folio = ?", rfc, "2", folio.to_i).first rescue nil
+    if complemento
+      send_file(
+          "#{Rails.root}/private/facturas/PA#{folio}.pdf",
+          filename: "PA#{folio}.pdf", type: "application/pdf", disposition: :inline
+      )
+    else
+      redirect_to login_path, notice: "Complemento no corresponde al RFC"
+    end
 
   end
 

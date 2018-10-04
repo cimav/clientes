@@ -27,8 +27,8 @@ production_cimavnetmultix:
   encoding: utf8
   pool: 5
   username: netmultix
-  password: N3tMult1x@CIMAV
-  socket: /tmp/mysql.sock
+  password: <%= ENV.fetch('PASSWD_NETMULTIX')%>
+  socket: /tmp/mysql.soc
   database: cimavnetmultix
 
 production_netmultix:
@@ -37,6 +37,6 @@ production_netmultix:
   encoding: utf8
   pool: 5
   username: netmultix
-  password: N3tMult1x@CIMAV
+  password: <%= ENV.fetch('PASSWD_NETMULTIX')%>
   socket: /tmp/mysql.sock
   database: netmultix
