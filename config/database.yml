@@ -19,7 +19,11 @@ default: &default
 
 development:
   <<: *default
-  database: clientes_development
+  database: clientes_development # no se usa
+
+production:
+  <<: *default
+  database: production_development # no se usa, no existe
 
 production_cimavnetmultix:
   adapter: mysql2
