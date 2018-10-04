@@ -21,7 +21,7 @@ class ComplementosController  < ApplicationController
     docto = "#{params[:docto]}.pdf"
 
     send_file(
-        "#{Rails.root}/private/#{docto}",
+        "#{Rails.root}/facturas/#{docto}",
         filename: "#{docto}",
         type: "application/pdf",
         disposition: "attachment; filename=#{docto}"
