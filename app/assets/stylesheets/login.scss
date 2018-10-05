@@ -21,7 +21,7 @@
   }
 
   //background-color: #d9ddf2; /*ef4748*/
-  background: transparent url("/assets/fondo.JPG") center top no-repeat;
+  background: transparent url("fondo.JPG") center top no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -54,7 +54,7 @@
     opacity: 0.9;
 
     .img-login {
-      background: transparent url("/assets/logo-cimav-medio.png") center top no-repeat;
+      background: transparent url("logo-cimav-medio.png") center top no-repeat;
       padding-top: 300px;
       margin: 0 auto;
       margin-top: 0px;
