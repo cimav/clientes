@@ -19,7 +19,7 @@ class ComplementosController  < ApplicationController
   def docto_pdf
 
     rfc = "%#{session[:user_rfc].strip}%"
-    folio = params[:folio]
+    folio = params[:folio].to_i(32)
     complemento = Complemento.select(:ft25_folio).where("ft25_rfc LIKE ? AND ft25_timbrado = ? AND ft25_folio = ?", rfc, "2", folio.to_i).first rescue nil
     if complemento
       send_file(
