@@ -21,7 +21,7 @@
   }
 
   //background-color: #d9ddf2; /*ef4748*/
-  background: transparent url("fondo.JPG") center top no-repeat;
+  background: transparent url( asset-path("fondo.JPG")) center top no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
