@@ -13,6 +13,13 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(rfc: params[:rfc].upcase) # params[:login][:rfc]
 
+    # de inicio, generar el digest si no lo tiene
+    if !user.passwd.blank? && user.password_digest.blank?
+      pass_digest =  BCrypt::Password.create(user.passwd)
+      user.password_digest = pass_digest
+      user.save
+    end
+
     # Verify user exists in db and run has_secure_password's .authenticate()
     # method to see if the password submitted on the login form was correct:
     if user && user.authenticate(params[:password])
