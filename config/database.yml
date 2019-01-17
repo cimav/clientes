@@ -37,10 +37,13 @@ production_cimavnetmultix:
 
 production_netmultix:
   adapter: mysql2
-  host: 10.0.0.13
+  # host:  10.0.0.13
+  host: fermi.cimav.edu.mx
   encoding: utf8
   pool: 5
-  username: netmultix
-  password: <%= ENV.fetch('PASSWD_NETMULTIX')%>
+  #username: netmultix
+  #password: <%= ENV.fetch('PASSWD_NETMULTIX')%>
+  username: admin
+  password: <%= ENV.fetch('PASSWD_FERMI')%>
   socket: /tmp/mysql.sock
   database: netmultix

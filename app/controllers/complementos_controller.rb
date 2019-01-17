@@ -26,6 +26,10 @@ class ComplementosController  < ApplicationController
           "#{Rails.root}/private/facturas/PA#{folio}.pdf",
           filename: "PA#{folio}.pdf", type: "application/pdf", disposition: :inline
       )
+      send_file(
+          "#{Rails.root}/private/xml/PA#{folio}.xml",
+          filename: "PA#{folio}.xml", type: "application/xml", disposition: :inline
+      )
     else
       redirect_to login_path, notice: "Complemento no corresponde al RFC"
     end

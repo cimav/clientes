@@ -4,7 +4,7 @@ class Complemento < ActiveRecord::Base
 
   self.abstract_class = true
 
-  self.table_name = 'ft25'
+  self.table_name = 'FT25'
 
   def serial
     self.ft25_folio.to_s(32)
