@@ -10,10 +10,21 @@
     %ul.collection
       -@complementos.each do |comp|
         %li.docu-item.collection-item{}
-          %a{:href=>"complementos/docto_pdf/#{comp.serial}", :target=>"_blank", :style=>"cursor: pointer;display:block;"}
-            %span{:style=>'padding-left:50px;'}
-              =comp.ft25_docto
-            %span.docu-item-right
-              =comp.ft25_fecha.to_s.to_date
+          %span{:style=>'padding-left:50px;'}
+            =comp.ft25_docto
+          %span.badge{:style=>'padding-left:50px;'}
+            %a{:href=>"complementos/docto_xml/#{comp.serial}", :target=>"_blank", :style=>"cursor: pointer;"}
+              %span.new.badge{:'data-badge-caption'=>''}
+                XML
+          %span{:style=>'padding-left:50px;'}
+            %a{:href=>"complementos/docto_pdf/#{comp.serial}", :target=>"_blank", :style=>"cursor: pointer;"}
+              %span.new.badge{:'data-badge-caption'=>''}
+                PDF
+          %span{:style=>'padding-left:50px;'}
+            =comp.ft25_fecha.to_s.to_date
+            -#
               %i.icon-visibility-X.material-icons{:style=>"padding-left:15px;"} visibility
+
+            -#
+              %a{:href=>"complementos/docto_pdf/#{comp.serial}", :target=>"_blank", :style=>"cursor: pointer;display:block;"}
 

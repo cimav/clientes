@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   match "/logout" => 'sessions#destroy', via: [:get, :post]
 
   get 'complementos/docto_pdf/:folio' => 'complementos#docto_pdf'
+  get 'complementos/docto_xml/:folio' => 'complementos#docto_xml'
 
 end
