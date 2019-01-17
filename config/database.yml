@@ -32,7 +32,7 @@ production_cimavnetmultix:
   pool: 5
   username: netmultix
   password: <%= ENV.fetch('PASSWD_NETMULTIX')%>
-  socket: /tmp/mysql.soc
+  socket: /tmp/mysql.sock
   database: cimavnetmultix
 
 production_netmultix:
