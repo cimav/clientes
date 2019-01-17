@@ -22,14 +22,19 @@ class ComplementosController  < ApplicationController
     folio = params[:folio].to_i(32)
     complemento = Complemento.select(:ft25_folio).where("ft25_rfc LIKE ? AND ft25_timbrado = ? AND ft25_folio = ?", rfc, "2", folio.to_i).first rescue nil
     if complemento
-      send_file(
-          "#{Rails.root}/private/xml/PA#{folio}.xml",
-          filename: "PA#{folio}.xml", type: "application/xml", disposition: :inline
-      )
-      send_file(
-          "#{Rails.root}/private/facturas/PA#{folio}.pdf",
-          filename: "PA#{folio}.pdf", type: "application/pdf", disposition: :inline
-      )
+      2.times do |i|
+        if (i==1)
+          send_file(
+              "#{Rails.root}/private/xml/PA#{folio}.xml",
+              filename: "PA#{folio}.xml", type: "application/xml", disposition: :inline
+          )
+        else
+          send_file(
+              "#{Rails.root}/private/facturas/PA#{folio}.pdf",
+              filename: "PA#{folio}.pdf", type: "application/pdf", disposition: :inline
+          )
+        end
+      end
     else
       redirect_to login_path, notice: "Complemento no corresponde al RFC"
     end
