@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :complementos
+  resources :comprobantes
 
   root to: 'complementos#index'
 
@@ -17,5 +18,7 @@ Rails.application.routes.draw do
 
   get 'complementos/docto_pdf/:folio' => 'complementos#docto_pdf'
   get 'complementos/docto_xml/:folio' => 'complementos#docto_xml'
+
+  get 'comprobantes/pdf/:folio' => 'comprobantes#pdf'
 
 end
